@@ -1,0 +1,40 @@
+
+https://leetcode.com/problems/sort-colors/description/
+
+
+class Solution {
+    public void sortColors(int[] nums) {
+        
+        int i=0;
+        int k= nums.length-1;
+        int j=0;
+        while( j <= k)
+        {
+            if(nums[j] == 0)
+            {
+                int p = nums[j];
+                nums[j] = nums[i];
+                nums[i] = p;
+
+                j++;
+                i++;
+            }
+            else if(nums[j] == 1)
+            {
+                j++;
+                
+            }
+            
+            else if(nums[j] == 2)
+            {
+                int p = nums[j];
+                nums[j] = nums[k];
+                nums[k] = p;
+
+                
+                k--;
+            }             
+        }
+     
+    }
+}

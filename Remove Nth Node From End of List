@@ -1,0 +1,36 @@
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode start = head;
+        ListNode end = head;
+        int count = -1;
+        int count2 = 0;
+
+        // Calculate the length of the list
+        while(end != null) {
+            count++;
+            end = end.next;
+        }
+
+        // If the node to be removed is the head node
+        if(n == count + 1) {
+            return head.next;
+        }
+
+        // Reset end to the start of the list
+        end = head;
+
+        // Move start to the (count - n)th node
+        while(start != null) {
+            if((count - n) == count2) {
+                break;
+            }
+            count2++;
+            start = start.next;
+        }
+
+        // Remove the nth node from the end
+        start.next = start.next.next;
+
+        return head;
+    }
+}

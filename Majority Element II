@@ -1,0 +1,21 @@
+
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        List<Integer> list = new ArrayList<>();
+
+        // Count the occurrences of each number in the array
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        // Iterate over the keys of the map and add the ones which appear more than n/3 times
+        for (int key : map.keySet()) {
+            if (map.get(key) > nums.length / 3) {
+                list.add(key);
+            }
+        }
+
+        return list;
+    }
+}
